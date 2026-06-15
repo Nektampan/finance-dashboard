@@ -8,8 +8,10 @@ const categoryRoutes = require('./routes/categories');
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: ['https://finance-dashboard-nine-mu-83.vercel.app', 'http://localhost:3000'],
+  credentials: true
+}));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
